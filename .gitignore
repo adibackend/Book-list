@@ -8,7 +8,7 @@
 .git
 # testing
 /coverage
-
+.vscode
 # production
 /build
 
