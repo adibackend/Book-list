@@ -42,14 +42,18 @@ function App() {
       {links.map((n)=>{
         return(
           <>
-       <article className='bg-blue-500 pb-4 rounded-xl '>
+       <article >
+              <div className='bg-blue-500 pb-4 rounded-xl max-w-xs'>
+
         <section>
+
           <img src={n.url} alt='asdf' className='h-[300px] w-[200px] p-4 '></img>
         </section>
-        <section className='text-center  px-4'>
-                <h1 className=''>{n.name}</h1>
+        <section className='text-center  px-4 '>
+                  <h1 className='max-w-44'>{n.name}</h1>
 <p>{n.authorName}</p>
         </section>
+      </div>
        </article>
           </>
         )
