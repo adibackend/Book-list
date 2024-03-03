@@ -7,16 +7,16 @@ const links =  [
     'authorName': 'Morgan Housel',
   },
   {
-    "url": "https://m.media-amazon.com/images/I/616ayioUd6L._SL1500_.jpg",
-    "name": "Same As Ever",
-    "authorName": "Morgan Housel",
+    "url": "https://m.media-amazon.com/images/I/61E0unKRIZL._SL1500_.jpg",
+    "name": "11 Rules For Life: Secrets to Level Up",
+    "authorName": "Chetan Bhagat",
   },
   {
 
 
-    "url": "https://m.media-amazon.com/images/I/616ayioUd6L._SL1500_.jpg",
-    "name": "Same As Ever",
-    "authorName": "Morgan Housel",
+    "url": "https://m.media-amazon.com/images/I/71M+MkYZA9L._SL1500_.jpg",
+    "name": "Free Will",
+    "authorName": "Tim harris",
   }
 ]
 
@@ -37,29 +37,24 @@ function App() {
   const Book = () => {
     return (
       <>
-        <article className=" rounded-xl font-semibold  ">
-          <div className='grid grid-flow-col-dense place-items-center h-screen '>
-            {links.map((n) => {
-              return (<>  
-                <div className='bg-[#FFFFFF] rounded-xl pb-4'>
-                  <div className=''>
-                    <img src= {n.url} alt='image' className='w-64 p-4 '></img> 
-                  </div>
-                  
-                <div className='text-center min-w-max'>
+      <div className='flex justify-center items-center h-screen gap-5 bg-[#f1f1f1] '>
 
-                    <h1>{n.name}</h1>
-                    <p>
-                      {n.authorName}
-                    </p>
-                </div>
-                 
-              </div>
-              </>)
-            })}
-            </div>
-         
-        </article>
+      {links.map((n)=>{
+        return(
+          <>
+       <article className='bg-blue-500 pb-4 rounded-xl '>
+        <section>
+          <img src={n.url} alt='asdf' className='h-[300px] w-[200px] p-4 '></img>
+        </section>
+        <section className='text-center  px-4'>
+                <h1 className=''>{n.name}</h1>
+<p>{n.authorName}</p>
+        </section>
+       </article>
+          </>
+        )
+      })}
+      </div>
       </>
     )
   }
@@ -67,7 +62,7 @@ function App() {
 
   return (
     <>
-      <div className=" h-full w-full ">
+      <div className=" h-screen w-screen ">
         <BookList />
       </div>
     </>
