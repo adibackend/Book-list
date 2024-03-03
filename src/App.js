@@ -23,56 +23,62 @@ const links = [
   }
 ]
 
-
+const displayAuthorName = (id) => {
+  const name = links.find((name)=>name.id===id)
+  console.log(name.authorName)
+  
+}
 function App() {
-  console.log(links)
+
   const BookList = () => {
-    return (
-      <>
-        <div className='flex justify-center items-center h-screen bg-[#f1f1f1] space-x-4'>
+
+  
+  return (
+    <>
+      <div className='flex justify-center items-center h-screen bg-[#f1f1f1] space-x-4'>
 
         {links.map((link) => {
           return (
             <>
-              <Book {...link} key={link.id} />
+              <Book {...link} key={link.id} displayAuthorName={displayAuthorName} />
             </>
           )
         })}
 
-        </div>
-      </>
-    )
-  }
+      </div>
+    </>
+  )
+}
 
-  const Book = (props) => {
-    const { name, authorName, url } = props
-    return (
-      <>
-  <div className='bg-blue-500 rounded-xl  pb-4'>
-    <div>
-        <img src={url} alt='Book image' className='h-[300px] w-[200px]  p-4'></img>
-    </div>
+const Book = (props) => {
+  const { name, authorName, url, displayAuthorName ,id} = props
+  return (
+    <>
+      <div className='bg-blue-500 rounded-xl  pb-4'>
+        <div>
+          <img src={url} alt='Book image' className='h-[300px] w-[200px]  p-4'></img>
+        </div>
 
         <section className='text-center  px-4 space-y-2 '>
           <h1 className='max-w-40 font-semibold text-xl'>{name}</h1>
           <p>{authorName}</p>
-
+          <button onClick={() => displayAuthorName(props.id)}  className='bg-gray-500 px-3 py-2 rounded-xl leading-loose hover:bg-gray-600'>press me</button>
         </section>
-  </div>
-
-
-      </>
-    )
-  }
-
-
-  return (
-    <>
-      <div className=" h-screen w-screen ">
-        <BookList />
       </div>
+
+
     </>
-  );
+  )
+}
+
+
+return (
+  <>
+    <div className=" h-screen w-screen ">
+      <BookList />
+    </div>
+  </>
+);
 }
 
 export default App;
