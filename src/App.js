@@ -1,65 +1,73 @@
+import React from 'react';
+
+const links =  [
+  {
+    "url": "https://m.media-amazon.com/images/I/616ayioUd6L._SL1500_.jpg",
+    "name": "Same As Ever",
+    'authorName': 'Morgan Housel',
+  },
+  {
+    "url": "https://m.media-amazon.com/images/I/616ayioUd6L._SL1500_.jpg",
+    "name": "Same As Ever",
+    "authorName": "Morgan Housel",
+  },
+  {
+
+
+    "url": "https://m.media-amazon.com/images/I/616ayioUd6L._SL1500_.jpg",
+    "name": "Same As Ever",
+    "authorName": "Morgan Housel",
+  }
+]
+
 
 function App() {
+  console.log(links)
   const BookList = () => {
     return (
       <>
-
-        <div className="my-auto">
-
-          <section className="grid  grid-cols-3 mx-auto  max-w-3xl my-auto gap-x-16 ">
+       
             <Book />
-            <Book />
-            <Book />
-          </section>
-        </div>
 
 
       </>
     )
   }
+
   const Book = () => {
     return (
       <>
-        <article className="bg-[#FFFFFF] rounded-xl font-semibold">
-          <Image />
-          <div className="space-y-2">
+        <article className=" rounded-xl font-semibold  ">
+          <div className='grid grid-flow-col-dense place-items-center h-screen '>
+            {links.map((n) => {
+              return (<>  
+                <div className='bg-[#FFFFFF] rounded-xl pb-4'>
+                  <div className=''>
+                    <img src= {n.url} alt='image' className='w-64 p-4 '></img> 
+                  </div>
+                  
+                <div className='text-center min-w-max'>
 
-            <Title />
-            <Author />
-          </div>
+                    <h1>{n.name}</h1>
+                    <p>
+                      {n.authorName}
+                    </p>
+                </div>
+                 
+              </div>
+              </>)
+            })}
+            </div>
+         
         </article>
       </>
     )
   }
-  const Image = () => {
-    return (
-      <>
-        <div className="p-4">
 
-          <img src="https://m.media-amazon.com/images/I/616ayioUd6L._SL1500_.jpg
-" className="object-fill " alt="image hai" />
-        </div>
 
-      </>
-    )
-  }
-  const Title = () => {
-    return (
-      <>
-        <h2 className="text-center text-xl">Title</h2>
-      </>
-    )
-  }
-  const Author = () => {
-    return (
-      <>
-        <h2 className="text-center  pb-4">Author</h2>
-      </>
-    )
-  }
   return (
     <>
-      <div className="bg-[#f1f5f8] h-screen flex items-center justify-center">
+      <div className=" h-full w-full ">
         <BookList />
       </div>
     </>
